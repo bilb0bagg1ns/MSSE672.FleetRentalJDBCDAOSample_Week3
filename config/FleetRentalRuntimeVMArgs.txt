@@ -1,0 +1,13 @@
+
+1.	Need following -D System Option VM Arguments 
+
+a. Application properties 
+-Dprop_location=<PATH>\FleetRentalLog4jSample\config\application.properties
+b. log4j properties
+-Dlog4j_prop_location=<PATH>\FleetRentalLog4jSample\config\log4j.properties
+
+2.	To pass in -D option into NetBeans set via Run -> Set Project Configuration
+
+Note: Have a space between two -D options as shown below:
+-Dprop_location=H:\MyOfficeDocs\FleetRentalLog4jSample\FleetRentalLog4jSample\config\application.properties -Dlog4j_prop_location=H:\MyOfficeDocs\FleetRentalLog4jSample\FleetRentalLog4jSample\config\log4j.properties
+ 
