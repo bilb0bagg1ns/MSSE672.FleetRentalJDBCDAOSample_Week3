@@ -88,7 +88,7 @@ public class ServiceFactory {
      * http://onjava.com/pub/a/onjava/2003/11/12/reflection.html 2.
      * http://www.artima.com/suiterunner/private.html
      */
-    private String getImplName(String serviceName) //throws Exception
+    private String getImplName(String serviceName) 
     {
         return PropertyManager.getPropertyValue(serviceName);
     }

@@ -99,7 +99,7 @@ public class FleetRentalJDBCDaoImpl implements IFleetRentalDao {
   @Override
   public boolean reserveRentalCar(RentalComposite _rentalComposite) {
     boolean status = false;
-    log.error("\n Reservation Implementation not complete");
+    log.error("Reservation Implementation not complete");
     return status;
   }
 

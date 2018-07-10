@@ -80,6 +80,8 @@ public class PropertyManager {
      * @return String - value for the passed key
      */
     static public String getPropertyValue(String key) {
+        String value = properties.getProperty(key);
+        System.out.println (value);
         return properties.getProperty(key);
     }
 } // end class PropertyManager

@@ -58,10 +58,10 @@ public class TestDriver {
         // (fleetRentalPickUp, fleetRentalDropOff,pickUpMonth,pickUpDay,pickUpYear,pickUpTime,dropOffMonth,dropOffDay, dropOffYear,dropOffTime)		
         rentalComposite.setItinerary(new Itinerary("San Francisco Airport", "San Francisco Airport", "06", "18", "2006", "01:10", "06", "28", "2006", "12:00"));
 
-        log.info("\n----------------");
-        log.info("\n-->Checking Car Availablity for itinerary: \n\n" + rentalComposite.getItinerary());
+        log.info("----------------");
+        log.info(" Checking Car Availablity for following itinerary: \n\n" + rentalComposite.getItinerary());
 
-        // now that we have an itinerary, lets call into the Model via the controller,
+        // now that we have an itinerary, lets call into the Model 
         // to see if have any cars available for this itinerary
         DAOManager daoManager = DAOManager.getInstance();
         boolean status = daoManager.performAction("ProcessItinerary", rentalComposite);
@@ -74,7 +74,7 @@ public class TestDriver {
                     if (rentalComposite.getAvailableRentals().isAvailable()) {
                         // Cool, we have a car to rent, lets get Customer info and the Car customer
                         // wants to rent.
-                        log.info("\n-->Cars available for above itinerary: \n\n" + rentalComposite.getAvailableRentals());
+                        log.info("Following cars available for above itinerary: \n\n" + rentalComposite.getAvailableRentals());
 
                         // User enters personal info
                         // Customer contructor takes in lastname, firstname, email address, day time phone and evening phone
@@ -84,7 +84,7 @@ public class TestDriver {
                         // Car constructor takes in rate, manufacturer, model, miles included
                         rentalComposite.setRentedCar(new Car(25.50f, "Ford", "Focus", "Unlimited"));
 
-                        log.info("\n-->Calling reserve rental car service with this details: \n\n" + rentalComposite);
+                        log.info("Calling reserve rental car service with this details: \n\n" + rentalComposite);
 
                         // Ideally the type of the service that needs to be executed
                         // is mapped in a properties file. Hardcoded here to

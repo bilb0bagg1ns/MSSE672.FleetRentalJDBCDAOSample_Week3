@@ -4,6 +4,7 @@ import com.fleetrentaljdbcdaosample.model.business.exception.PropertyFileNotFoun
 import com.fleetrentaljdbcdaosample.model.domain.RentalComposite;
 import com.fleetrentaljdbcdaosample.model.services.exception.ServiceLoadException;
 import com.fleetrentaljdbcdaosample.model.services.factory.ServiceFactory;
+import com.fleetrentaljdbcdaosample.model.services.processitineraryservice.IProcessItineraryService;
 import com.fleetrentaljdbcdaosample.model.services.reserverentalservice.IReserveRentalService;
 import org.apache.log4j.Logger;
 
@@ -60,6 +61,9 @@ public class DAOManager extends ManagerSuperType {
   public boolean performAction(String commandString, RentalComposite rentalComposite) {
     boolean status = false;
     switch (commandString) {
+      case "ProcessItinerary":
+          status = processItinerary(IProcessItineraryService.NAME, rentalComposite);
+          break;
       case "ReserveRental":
         status = reserveRentalCar(IReserveRentalService.NAME, rentalComposite);
         break;
@@ -67,6 +71,26 @@ public class DAOManager extends ManagerSuperType {
     return status;
   }//end performaAction
 
+/**
+     * Take customer itinerary request and process it.
+     *
+     * @param commandString
+     * @param rentalComposite
+     */
+    private boolean processItinerary(String commandString, RentalComposite rentalComposite) {
+        boolean status = false;
+        ServiceFactory serviceFactory = ServiceFactory.getInstance();
+        IProcessItineraryService iProcessItineraryService;
+
+        try {
+            iProcessItineraryService = (IProcessItineraryService) serviceFactory.getService(commandString);
+            status = iProcessItineraryService.processItinerary(rentalComposite);
+        } catch (ServiceLoadException e) {
+            log.error("DAOManager::processItinerary failed", e);
+        }
+        return status;
+    } //end processItinerary
+  
   /**
    * Reserve car
    *
@@ -79,6 +103,7 @@ public class DAOManager extends ManagerSuperType {
     IReserveRentalService iReserveRentalService;
 
     try {
+      log.info("Reserving Rental Car");
       iReserveRentalService = (IReserveRentalService) serviceFactory.getService(commandString);
       status = iReserveRentalService.reserveRentalCar(rentalComposite);
     } catch (ServiceLoadException e) {

@@ -7,7 +7,7 @@ import com.fleetrentaljdbcdaosample.model.services.factory.DAOFactory;
 import org.apache.log4j.Logger;
 
 /**
- * Reserves the car by delegating to ReserveRentalPojo
+ * Reserves the car by delegating to a DAO
  *
  * @author Mike.Prasad
  *
@@ -30,6 +30,7 @@ public class ReserveRentalServiceImpl implements IReserveRentalService {
     public boolean reserveRentalCar(RentalComposite rentalComposite) {
         boolean status = false;
         try {
+           log.info("Inside ReserveRentalServiceImpl:ReserveRentalCar");
             // Fetch the DAO Implementation
             IFleetRentalDao fleetRentalDao = DAOFactory.getDao();
             // Reserve the car
