@@ -60,7 +60,7 @@ public abstract class ManagerSuperType {
    * @throws PropertyFileNotFoundException Properties file could bot be loaded.
    */
   public static void loadProperties() throws PropertyFileNotFoundException {
-    /*
+    /*-
     	* FAQ: How to pass in Properties file to app while I'm testing?
     	* 
     	* Answer:
@@ -83,6 +83,15 @@ public abstract class ManagerSuperType {
     	*            Example:
     	* 	           -Dprop_location=E:\FleetRental\config\application.properties
     	* 
+    	* If running in NetBeans
+    	* ===================== 
+    	* 
+    	* Right click on the unit test and navigate to
+    	*       1. Run -> Set Project Configuration -> Customize
+    	*       3. In VM Options section, add the -D property 
+    	* 	           -Dprop_location=<drive><location>\application.properties
+    	*            Example:
+    	* 	           -Dprop_location=E:\FleetRental\config\application.properties
     	* If running on command line 
     	* ==========================
     	* you'd pass in the above -D option with the java command.

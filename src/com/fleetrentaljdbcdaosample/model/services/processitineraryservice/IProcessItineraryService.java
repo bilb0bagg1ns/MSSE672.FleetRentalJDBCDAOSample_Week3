@@ -9,7 +9,7 @@ import com.fleetrentaljdbcdaosample.model.services.IService;
  */
 public interface IProcessItineraryService extends IService {
 
-    public final String NAME = "IProcessItineraryService";
+  public final String NAME = "IProcessItineraryService";
 
-    public boolean processItinerary(RentalComposite rentalComposite);
+  public boolean processItinerary(RentalComposite rentalComposite);
 }

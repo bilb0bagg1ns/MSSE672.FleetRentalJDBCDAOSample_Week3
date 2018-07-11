@@ -45,52 +45,52 @@ import com.fleetrentaljdbcdaosample.model.services.manager.PropertyManager;
  */
 public class ServiceFactory {
 
-    // Next three lines part of the Singleton Pattern.
-    // Read article on Singleton Pattern issues: http://www.ibm.com/developerworks/java/library/j-dcl.html
-    private ServiceFactory() {
-    }
-    private static ServiceFactory serviceFactoryInstance;
+  // Next three lines part of the Singleton Pattern.
+  // Read article on Singleton Pattern issues: http://www.ibm.com/developerworks/java/library/j-dcl.html
+  private ServiceFactory() {
+  }
+  private static ServiceFactory serviceFactoryInstance;
 
-    public static ServiceFactory getInstance() {
-        if (serviceFactoryInstance == null) {
-            serviceFactoryInstance = new ServiceFactory();
-        }
-        return serviceFactoryInstance;
+  public static ServiceFactory getInstance() {
+    if (serviceFactoryInstance == null) {
+      serviceFactoryInstance = new ServiceFactory();
     }
+    return serviceFactoryInstance;
+  }
 
-    /**
-     *
-     * @param serviceName Name of the service interface
-     * @return Implementation of the service interface
-     *
-     * @throws ServiceLoadException Thrown when the implementation for the
-     * "serviceName" cannot be found and hence loaded
-     */
-    public IService getService(String serviceName) throws ServiceLoadException {
-        try {
-            Class<?> c = Class.forName(getImplName(serviceName));
-            return (IService) c.newInstance();
-        } catch (Exception excp) {
-            serviceName = serviceName + " not loaded";
-            throw new ServiceLoadException(serviceName, excp);
-        }
+  /**
+   *
+   * @param serviceName Name of the service interface
+   * @return Implementation of the service interface
+   *
+   * @throws ServiceLoadException Thrown when the implementation for the
+   * "serviceName" cannot be found and hence loaded
+   */
+  public IService getService(String serviceName) throws ServiceLoadException {
+    try {
+      Class<?> c = Class.forName(getImplName(serviceName));
+      return (IService) c.newInstance();
+    } catch (Exception excp) {
+      serviceName = serviceName + " not loaded";
+      throw new ServiceLoadException(serviceName, excp);
     }
+  }
 
-    /**
+  /*-
      * Unlike in the slides, this example uses the PropertyManager via the
      * FleetRentalManager to get a property value.
      *
      * Read documentation on PropertyManager
      *
      * @param serviceName Name of the service interface
-     * @return string Implementation of the service interface Unit testing
-     * private methods: 1.
-     * http://onjava.com/pub/a/onjava/2003/11/12/reflection.html 2.
-     * http://www.artima.com/suiterunner/private.html
-     */
-    private String getImplName(String serviceName) 
-    {
-        return PropertyManager.getPropertyValue(serviceName);
-    }
+     * @return string Implementation of the service interface 
+     * 
+     * Unit testing private methods: 
+     * 1.http://onjava.com/pub/a/onjava/2003/11/12/reflection.html 
+     * 2.http://www.artima.com/suiterunner/private.html
+   */
+  private String getImplName(String serviceName) {
+    return PropertyManager.getPropertyValue(serviceName);
+  }
 
 } // end class ServiceFactory

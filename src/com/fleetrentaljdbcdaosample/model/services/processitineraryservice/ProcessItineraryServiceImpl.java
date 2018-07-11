@@ -1,4 +1,5 @@
 package com.fleetrentaljdbcdaosample.model.services.processitineraryservice;
+
 import com.fleetrentaljdbcdaosample.model.dao.IFleetRentalDao;
 import com.fleetrentaljdbcdaosample.model.domain.RentalComposite;
 import com.fleetrentaljdbcdaosample.model.services.exception.DaoLoadException;
@@ -13,11 +14,11 @@ import org.apache.log4j.Logger;
  */
 public class ProcessItineraryServiceImpl implements IProcessItineraryService {
 
-    /*
+  /*
      * Category set in config/log4j.properties as
      * log4j.category.com.classexercise=DEBUG, A1
-     */
-    static Logger log = Logger.getLogger("com.fleetrentalhibernatedaosample");
+   */
+  static Logger log = Logger.getLogger("com.fleetrentalhibernatedaosample");
 
   /**
    * Delegates request to the DAO.
@@ -26,20 +27,20 @@ public class ProcessItineraryServiceImpl implements IProcessItineraryService {
    */
   @Override
   public boolean processItinerary(RentalComposite rentalComposite) {
-        boolean status = false;
-        // Fetch the DAO Implementation
-        IFleetRentalDao fleetRentalDao;
-        try {
-            fleetRentalDao = DAOFactory.getDao();
-            // get available cars to rent
-            status = fleetRentalDao.getAvailableRentals(rentalComposite);
-        } catch (DaoLoadException ex) {
-            // We are not propagating exception, with the intent that the 
-            // RentalComposite will hold the state reflecting(null AvailableRentals
-            // for example) an anomaly
-            log.error("DAO Load Exception", ex);
-        }
-        return status;
+    boolean status = false;
+    // Fetch the DAO Implementation
+    IFleetRentalDao fleetRentalDao;
+    try {
+      fleetRentalDao = DAOFactory.getDao();
+      // get available cars to rent
+      status = fleetRentalDao.getAvailableRentals(rentalComposite);
+    } catch (DaoLoadException ex) {
+      // We are not propagating exception, with the intent that the 
+      // RentalComposite will hold the state reflecting(null AvailableRentals
+      // for example) an anomaly
+      log.error("DAO Load Exception", ex);
+    }
+    return status;
   }
 } // end class ProcessItineraryServiceImpl 
 

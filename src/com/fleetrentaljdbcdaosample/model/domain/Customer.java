@@ -1,6 +1,7 @@
 package com.fleetrentaljdbcdaosample.model.domain;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Customer implements Serializable {
 
@@ -87,6 +88,65 @@ public class Customer implements Serializable {
     public String getLastName() {
         return lastName;
     }
+    
+        public boolean validate() {
+    if (lastName == null) {
+        return false;
+    }
+    if (firstName == null) {
+        return false;
+    }
+    if (emailAddress == null) {
+        return false;
+    }
+    if (dayTimePhone == null) {
+        return false;
+    }
+    if (eveningTimePhone == null) {
+        return false;
+    }
+
+    return true;
+}
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 89 * hash + Objects.hashCode(this.lastName);
+        hash = 89 * hash + Objects.hashCode(this.firstName);
+        hash = 89 * hash + Objects.hashCode(this.emailAddress);
+        hash = 89 * hash + Objects.hashCode(this.dayTimePhone);
+        hash = 89 * hash + Objects.hashCode(this.eveningTimePhone);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Customer other = (Customer) obj;
+        if (!Objects.equals(this.lastName, other.lastName)) {
+            return false;
+        }
+        if (!Objects.equals(this.firstName, other.firstName)) {
+            return false;
+        }
+        if (!Objects.equals(this.emailAddress, other.emailAddress)) {
+            return false;
+        }
+        if (!Objects.equals(this.dayTimePhone, other.dayTimePhone)) {
+            return false;
+        }
+        return true;
+    }
+
 
     public String toString() {
         StringBuffer strBfr = new StringBuffer();

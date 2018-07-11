@@ -12,9 +12,8 @@ public interface IReserveRentalService extends IService {
     public final String NAME = "IReserveRentalService";
 
     /**
-     * Register customer into our application
+     * Reserves the car by delegating to a DAO
      *
-     * @throws RegistrationException
      */
     public boolean reserveRentalCar(RentalComposite rentalComposite);
 

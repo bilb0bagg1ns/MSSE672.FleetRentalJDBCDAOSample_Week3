@@ -62,8 +62,8 @@ public class DAOManager extends ManagerSuperType {
     boolean status = false;
     switch (commandString) {
       case "ProcessItinerary":
-          status = processItinerary(IProcessItineraryService.NAME, rentalComposite);
-          break;
+        status = processItinerary(IProcessItineraryService.NAME, rentalComposite);
+        break;
       case "ReserveRental":
         status = reserveRentalCar(IReserveRentalService.NAME, rentalComposite);
         break;
@@ -71,26 +71,26 @@ public class DAOManager extends ManagerSuperType {
     return status;
   }//end performaAction
 
-/**
-     * Take customer itinerary request and process it.
-     *
-     * @param commandString
-     * @param rentalComposite
-     */
-    private boolean processItinerary(String commandString, RentalComposite rentalComposite) {
-        boolean status = false;
-        ServiceFactory serviceFactory = ServiceFactory.getInstance();
-        IProcessItineraryService iProcessItineraryService;
+  /**
+   * Take customer itinerary request and process it.
+   *
+   * @param commandString
+   * @param rentalComposite
+   */
+  private boolean processItinerary(String commandString, RentalComposite rentalComposite) {
+    boolean status = false;
+    ServiceFactory serviceFactory = ServiceFactory.getInstance();
+    IProcessItineraryService iProcessItineraryService;
 
-        try {
-            iProcessItineraryService = (IProcessItineraryService) serviceFactory.getService(commandString);
-            status = iProcessItineraryService.processItinerary(rentalComposite);
-        } catch (ServiceLoadException e) {
-            log.error("DAOManager::processItinerary failed", e);
-        }
-        return status;
-    } //end processItinerary
-  
+    try {
+      iProcessItineraryService = (IProcessItineraryService) serviceFactory.getService(commandString);
+      status = iProcessItineraryService.processItinerary(rentalComposite);
+    } catch (ServiceLoadException e) {
+      log.error("DAOManager::processItinerary failed", e);
+    }
+    return status;
+  } //end processItinerary
+
   /**
    * Reserve car
    *

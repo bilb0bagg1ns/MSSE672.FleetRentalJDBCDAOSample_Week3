@@ -13,100 +13,100 @@ import java.io.Serializable;
  */
 public class RentalComposite implements Serializable {
 
-    /**
-     * Holds information of the customer
-     */
-    private Customer customer;
+  /**
+   * Holds information of the customer
+   */
+  private Customer customer;
 
-    /**
-     * Holds the list of Cars available for rental
-     */
-    private AvailableRentals availableRentals;
+  /**
+   * Holds the list of Cars available for rental
+   */
+  private AvailableRentals availableRentals;
 
-    /**
-     * Customer's itinerary
-     */
-    private Itinerary itinerary;
+  /**
+   * Customer's itinerary
+   */
+  private Itinerary itinerary;
 
-    /**
-     * Car chosen by customer to rent
-     */
-    private Car rentedCar;
+  /**
+   * Car chosen by customer to rent
+   */
+  private Car rentedCar;
 
-    /**
-     * @param
-     */
-    public RentalComposite() {
-    }
+  /**
+   * @param
+   */
+  public RentalComposite() {
+  }
 
-    /**
-     * @return Returns the itinerary.
-     */
-    public Itinerary getItinerary() {
-        return itinerary;
-    }
+  /**
+   * @return Returns the itinerary.
+   */
+  public Itinerary getItinerary() {
+    return itinerary;
+  }
 
-    /**
-     * @param itinerary The itinerary to set.
-     */
-    public void setItinerary(Itinerary itinerary) {
-        this.itinerary = itinerary;
-    }
+  /**
+   * @param itinerary The itinerary to set.
+   */
+  public void setItinerary(Itinerary itinerary) {
+    this.itinerary = itinerary;
+  }
 
-    /**
-     * @return Returns the availableRentals.
-     */
-    public AvailableRentals getAvailableRentals() {
-        return availableRentals;
-    }
+  /**
+   * @return Returns the availableRentals.
+   */
+  public AvailableRentals getAvailableRentals() {
+    return availableRentals;
+  }
 
-    /**
-     * @param availableRentals The availableRentals to set.
-     */
-    public void setAvailableRentals(AvailableRentals availableRentals) {
-        this.availableRentals = availableRentals;
-    }
+  /**
+   * @param availableRentals The availableRentals to set.
+   */
+  public void setAvailableRentals(AvailableRentals availableRentals) {
+    this.availableRentals = availableRentals;
+  }
 
-    /**
-     * @return Returns the customer.
-     */
-    public Customer getCustomer() {
-        return customer;
-    }
+  /**
+   * @return Returns the customer.
+   */
+  public Customer getCustomer() {
+    return customer;
+  }
 
-    /**
-     * @param customer The customer to set.
-     */
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
+  /**
+   * @param customer The customer to set.
+   */
+  public void setCustomer(Customer customer) {
+    this.customer = customer;
+  }
 
-    /**
-     * @return Returns the rentedCar.
-     */
-    public Car getRentedCar() {
-        return rentedCar;
-    }
+  /**
+   * @return Returns the rentedCar.
+   */
+  public Car getRentedCar() {
+    return rentedCar;
+  }
 
-    /**
-     * @param rentedCar The rentedCar to set.
-     */
-    public void setRentedCar(Car car) {
-        this.rentedCar = car;
-    }
+  /**
+   * @param rentedCar The rentedCar to set.
+   */
+  public void setRentedCar(Car car) {
+    this.rentedCar = car;
+  }
 
-    public String toString() {
-        StringBuffer strBfr = new StringBuffer();
-        strBfr.append("\nCustomer Info :\n");
-        strBfr.append(customer);
-        strBfr.append("\n\nAvailable Rentals :\n");
-        strBfr.append(availableRentals);
-        strBfr.append("\n\nItinerary :\n");
-        strBfr.append(itinerary);
-        strBfr.append("\n\nRented Car :\n");
-        strBfr.append(rentedCar);
+  public String toString() {
+    StringBuffer strBfr = new StringBuffer();
+    strBfr.append("\nCustomer Info :\n");
+    strBfr.append(customer);
+    strBfr.append("\n\nAvailable Rentals :\n");
+    strBfr.append(availableRentals);
+    strBfr.append("\n\nItinerary :\n");
+    strBfr.append(itinerary);
+    strBfr.append("\n\nRented Car :\n");
+    strBfr.append(rentedCar);
 
-        return strBfr.toString();
-    }
+    return strBfr.toString();
+  }
 
 } //end class RentalComposite
